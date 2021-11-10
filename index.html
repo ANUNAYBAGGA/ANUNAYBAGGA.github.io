@@ -95,6 +95,9 @@
       </style>
 
       <body>
+        <div class="container" id = "loading">  
+          <img src="loading.gif" alt="" style="margin: auto; height: 100%; width: 100%;">  
+        </div> 
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -107,19 +110,21 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav" style="text-align: center;">
-                <li class = "links"><a href="#" id = "active">Home</a></li>
-                <li class = "links"><a href="#" style = "color: beige;">Experience</a></li>
-                <li class = "links"><a href="#" style = "color: beige;">Projects</a></li>
-                <li class = "links"><a href="#" style = "color: beige;">Photography</a></li>
+                <li class = "links"><a href="#section1" id = "active">Home</a></li>
+                <li class = "links"><a href="#section2" style = "color: beige;">Academics</a></li>
+                <li class = "links"><a href="#section3" style = "color: beige;">Experience</a></li>
+                <li class = "links"><a href="https://github.com/ANUNAYBAGGA" style = "color: beige;">Projects</a></li>
+                <li class = "links"><a href="https://www.instagram.com/anunay_clicks/" style = "color: beige;">Photography</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" style = "color: beige;"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                <li><a href="#" style = "color: beige;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="https://www.linkedin.com/in/anunay-bagga/" style = "color: beige;"><span class="glyphicon glyphicon-user" ></span> Linkedin</a></li>
+                
               </ul>
             </div>
           </div>
         </nav>
 
+        
         <div class = "section" id = "section1">
           <div class="container" id = "card">
             <h1><b>Hi, I'm Anunay !</b></h1>
@@ -164,6 +169,21 @@
 
 
       <script>
-          
+        $(window).on('load', function () {  
+           $("#loading").fadeOut("slow");  
+         });  
+        $(document).ready(function(){
+          $("a").on('click', function(event) {
+            if (this.hash !== "") {
+              event.preventDefault();
+              var hash = this.hash;
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+                window.location.hash = hash;
+              });
+            } 
+          });
+        });
       </script>
 </html>
